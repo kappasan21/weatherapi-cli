@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import WeatherContext from '../WeatherContext.jsx';
 
-import './Reportresult.css';
+import './ReportResult.css';
 
 
 export default function ReportResult() {
