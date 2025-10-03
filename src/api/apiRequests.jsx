@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 
-const serverURL = 'http://localhost:5201';
-
+// const serverURL = 'http://localhost:5201';
+const serverURL = 'https://weatherapi-svr.onrender.com';
 
 export async function getLocationData(cityName) {
   // Input check
