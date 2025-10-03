@@ -1,0 +1,28 @@
+.reportResultContainer {
+  line-height: 1;
+  border: 1px solid #ccc;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+.reportResultContainer img {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid darkgray;
+}
+
+.reportResultContainer button {
+  border: none;
+  background-color: green;
+  color: white;
+}
+
+.reportResultContainer button:hover {
+  background-color: orange;
+  color: black;
+}

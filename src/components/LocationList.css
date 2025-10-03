@@ -1,0 +1,43 @@
+.locationList {
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 1%;
+  margin: 0 auto;
+}
+
+.locationItem {
+  background-color: ivory;
+  margin-bottom: 3%;
+  /* Due to use of <li> tag, it creates an indentation automatically */
+  margin-right: 10%;
+  padding: 1%;
+  list-style: none;
+  border-radius: 10px;
+  /* border: 1px solid red; */
+  cursor: pointer;
+}
+
+.locationItem:hover {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.locationInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* border: 2px solid red; */
+  height: 80%;
+  line-height: 0.5rem;
+  margin-top: -3%;
+}
+
+#google-map-container {
+  width: 300px;
+  height: 300px;
+  border: 3px solid darkgray;
+  border-radius: 10px;
+  margin: 3% auto;
+  border-radius: 5px;
+}

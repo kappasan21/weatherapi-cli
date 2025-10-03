@@ -1,0 +1,33 @@
+.userInputForm {
+  background-color: lightgray;
+  padding: 1%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.userInputForm button,
+.userInputForm input {
+  width: 50%;
+  height: 2rem;
+  line-height: 0.8rem;
+  margin: 0 auto 0.5rem auto;
+  border-radius: 5px;
+  border: none;
+}
+
+.userInputForm input {
+  padding: 0 1%;
+}
+
+.userInputForm button {
+  width: 30%;
+  background-color: ivory;
+  cursor: pointer;
+}
+
+.userInputForm button:hover {
+  background-color: green;
+  color: white;
+}
