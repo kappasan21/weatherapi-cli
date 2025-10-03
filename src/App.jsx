@@ -92,7 +92,7 @@ export default function App() {
   return (
     <WeatherContext.Provider value={weatherProps}>
       <div>
-        <h1>Weather API CLI</h1>
+        <h1>Weather Report APP</h1>
         <p id="version-info">server-client version</p>
         <p>Get the current weather information for any location in the world.</p>
 

@@ -16,7 +16,7 @@ export default function ReportResult() {
 
   return (
     <div className="reportResultContainer">
-      <h2>Weather Report</h2>
+      <h2>Current Weather Report</h2>
       <p>Location: {location}</p>
       <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="weather_icon" />
       <p>Weather: {weatherData.weather[0].main}</p>
