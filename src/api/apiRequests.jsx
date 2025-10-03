@@ -1,10 +1,13 @@
 import axios from 'axios';
 
 
-
+// URL for local environment
 // const serverURL = 'http://localhost:5201';
+// URL for external environment on Render
 const serverURL = 'https://weatherapi-svr.onrender.com';
 
+
+// Fetch location candidate list data based on the use input data as city name
 export async function getLocationData(cityName) {
   // Input check
   if (!cityName || cityName.trim() === '') {
@@ -13,10 +16,10 @@ export async function getLocationData(cityName) {
   }
 
   try {
-    // const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${APIKEY}`);
     console.log('Fetching location data for city: ', cityName);
     const result = await axios.get(serverURL + '/location/' + cityName);
 
+    // Return the fetched location list data if any but return empty array if none
     if (result.data.length === 0) {
       console.error('No data found for the specified city');
       return [];
@@ -31,6 +34,7 @@ export async function getLocationData(cityName) {
 };
 
 
+// Fetch weather data based on the detail location data with latitude and longitude
 export async function getWeatherData(lat, lon) {
   // Input check
   if (!lat || !lon) {
@@ -39,19 +43,20 @@ export async function getWeatherData(lat, lon) {
   }
 
   try {
-    // const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}`);
     console.log('Fetching weather data for lat: ', lat, ' lon: ', lon);
     const result = await axios.get(serverURL + '/weather/' + lat + '/' + lon);
 
+    // return weather data if any but return empty object
     if (result.data.length === 0) {
       console.error('No weather data found for the specified locaton');
-      return [];
+      return {};
     } else {
       console.log('Weater data: ', result.data);
       return result.data;
     }
   } catch (error) {
     console.error('Error fetching weather data: ', error);
+    return {};
   }
 };
 
