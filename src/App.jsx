@@ -19,9 +19,7 @@ export default function App() {
 
   // Keep checking the server status until it becomes up
   useEffect(() => {
-    const currentServerStatus = checkWeatherServerHealth();
-    console.log(currentServerStatus);
-    setServerStatus(currentServerStatus);
+    setServerStatus(checkWeatherServerHealth());
   }, []);
 
 
