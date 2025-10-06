@@ -64,11 +64,16 @@ export async function getWeatherData(lat, lon) {
 
 // Check the connection with the weatherAPI-svr - since it is on Render with free plan, it is usualy on sleep mode, and takes time to wake it up. So, return the status of the server.
 export async function checkWeatherServerHealth() {
-  const result = await axios.get(serverURL + '/test/connection');
-  console.log("Response from the server: ", result.data);
-  if (result.data) {
-    return true;
-  } else {
+  try {
+    const result = await axios.get(serverURL + '/test/connection');
+    console.log("Response from the server: ", result);
+    if (result.data) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error("Failed to get the response from the server: ", error);
     return false;
   }
 };

@@ -22,7 +22,7 @@ export default function App() {
     const currentServerStatus = checkWeatherServerHealth();
     console.log(currentServerStatus);
     setServerStatus(currentServerStatus);
-  }, []);
+  }, [serverStatus]);
 
 
 
