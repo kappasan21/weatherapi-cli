@@ -19,10 +19,14 @@ export default function App() {
 
   // Keep checking the server status until it becomes up
   useEffect(() => {
-    console.log("The status check result: ", checkWeatherServerHealth());
-    setServerStatus(checkWeatherServerHealth());
+    srvHealthCheck();
   }, []);
 
+  async function srvHealthCheck() {
+    const status = await checkWeatherServerHealth();
+    console.log("Current Server Status: ", status);
+    setServerStatus(status);
+  }
 
 
   // Get the user input data as location data
