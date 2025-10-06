@@ -1,8 +1,8 @@
 import UserInputForm from './components/UserInputForm.jsx';
 import './App.css';
 import WeatherContext from './WeatherContext.jsx';
-import { useState } from 'react';
-import { getLocationData, getWeatherData } from './api/apiRequests.jsx';
+import { useState, useEffect } from 'react';
+import { getLocationData, getWeatherData, checkWeatherServerHealth } from './api/apiRequests.jsx';
 
 import LocationList from './components/LocationList.jsx';
 import ReportResult from './components/ReportResult.jsx';
@@ -14,6 +14,16 @@ export default function App() {
   const [location, setLocation] = useState(""); // location input by user
   const [locationList, setLocationList] = useState([]); // API will return location list data once sending the location data
   const [weatherData, setWeatherData] = useState([]); // API will return weather data once sending the location data
+  const [serverStatus, setServerStatus] = useState(false);
+
+
+  // Keep checking the server status until it becomes up
+  useEffect(() => {
+    const currentServerStatus = checkWeatherServerHealth();
+    console.log(currentServerStatus);
+    setServerStatus(currentServerStatus);
+  }, []);
+
 
 
   // Get the user input data as location data
@@ -64,6 +74,7 @@ export default function App() {
   };
 
 
+  // Reset weather report currently displaying and back to the page to ask the location
   function resetWeatherData(e) {
     e.preventDefault();
 
@@ -71,8 +82,7 @@ export default function App() {
     setLocationList([]);
     setWeatherData([]);
     setIsReportVisible(false);
-  }
-
+  };
 
 
 
@@ -93,6 +103,7 @@ export default function App() {
     <WeatherContext.Provider value={weatherProps}>
       <div>
         <h1>Weather Report APP</h1>
+        <h3>Server Status: {serverStatus}</h3>
         <p id="version-info">server-client version</p>
         <p>Get the current weather information for any location in the world.</p>
 
