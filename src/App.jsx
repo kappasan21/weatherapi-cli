@@ -103,9 +103,9 @@ export default function App() {
     <WeatherContext.Provider value={weatherProps}>
       <div>
         <h1>Weather Report APP</h1>
-        <h3 id="server-status">Server Status: {serverStatus ? "Ready!" : "Please wait for few minutes..."}</h3>
         <p id="version-info">server-client version</p>
         <p>Get the current weather information for any location in the world.</p>
+        <h3 id="server-status">Server Status: {serverStatus ? "Ready!" : "Please wait for few minutes..."}</h3>
 
         {!isReportVisible && locationList.length === 0 ? <UserInputForm /> : ""}
 
