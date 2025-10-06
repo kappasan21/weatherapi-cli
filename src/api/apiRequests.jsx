@@ -68,10 +68,10 @@ export async function checkWeatherServerHealth() {
     const result = await axios.get(serverURL + '/test/connection');
     console.log("Response from the server: ", result);
 
-    if (result.data) {
-      return true;
-    } else {
+    if (!result) {
       return false;
+    } else {
+      return true;
     }
   } catch (error) {
     console.error("Failed to get the response from the server: ", error);
